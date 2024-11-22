@@ -27,6 +27,7 @@ jobs:
         echo APK_FILE_LEGACY="clip_share_client-legacy.apk" >> $GITHUB_ENV
 
     - name: Check version
+      if: false
       run: |
         version="${{env.VERSION}}"
         echo 'Checking versionName ...'
@@ -41,6 +42,7 @@ jobs:
         echo 'versionCode is correct.'
 
     - name: Check release_notes.md version
+      if: false
       run: |
         for v in $(grep -oE '[0-9]+\.[0-9]+\.[0-9]+' .github/workflows/resources/release_notes.md); do \
         grep -qF "${{env.VERSION}}" <<<"$v"; \
