@@ -16,16 +16,10 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v4
 
-    - name: Pre-Set variables
-      run: |
-        echo "github_ref_name='frakc.20241121.0.1'" >> "$GITHUB_ENV"
-        cat "$GITHUB_ENV"
-
     - name: Set variables
       run: |
         cat "$GITHUB_ENV"
-        echo ${{github_ref_name}}
-        version="$(echo '${{github_ref_name}}' | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')"
+        version="$(echo '20241121.0.1' | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')"
         echo VERSION="$version" >> $GITHUB_ENV
         echo TAG="v${version}" >> $GITHUB_ENV
         echo TITLE="Version ${version}" >> $GITHUB_ENV
