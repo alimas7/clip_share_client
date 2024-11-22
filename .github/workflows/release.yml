@@ -87,6 +87,6 @@ jobs:
       run: |
         sed -i "s/<VERSION>/${{env.VERSION}}/g" .github/workflows/resources/release_notes.md
         cd release
-        gh release create "${{env.TAG}}" --latest --verify-tag \
+        gh release create "${{env.TAG}}" --latest \
         --notes-file ../.github/workflows/resources/release_notes.md \
         --title "${{env.TITLE}}" *
